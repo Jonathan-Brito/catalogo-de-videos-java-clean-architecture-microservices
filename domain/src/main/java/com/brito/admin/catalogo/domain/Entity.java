@@ -1,5 +1,7 @@
 package com.brito.admin.catalogo.domain;
 
+import com.brito.admin.catalogo.domain.validation.ValidationHandler;
+
 import java.util.Objects;
 
 public abstract class Entity<ID extends Identifier> {
@@ -14,6 +16,8 @@ public abstract class Entity<ID extends Identifier> {
     public ID getId(){
         return id;
     }
+
+    public abstract void validate(ValidationHandler handler);
 
     @Override
     public boolean equals(final Object o) {
