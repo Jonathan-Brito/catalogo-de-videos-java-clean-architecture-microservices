@@ -1,4 +1,4 @@
-package com.brito.admin.catalogo.application.category.create;
+package com.brito.admin.catalogo.application.catgory.create;
 
 import com.brito.admin.catalogo.domain.category.Category;
 import com.brito.admin.catalogo.domain.category.CategoryID;
