@@ -5,6 +5,7 @@ import com.brito.admin.catalogo.application.catgory.update.UpdateCategoryCommand
 import com.brito.admin.catalogo.domain.category.Category;
 import com.brito.admin.catalogo.domain.category.CategoryGateway;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
@@ -34,6 +35,7 @@ public class UpdateCategoryUseCaseTest {
     // 4. Teste simulando um erro generico vindo do gateway
     // 5. Teste atualizar categoria passando ID inválido
 
+    @Test
     public void givenAValidCommand_whenCallsUpdateCategory_shouldReturnCategoryId() {
         final var aCategory =
                 Category.newCategory("Film", null, true);
