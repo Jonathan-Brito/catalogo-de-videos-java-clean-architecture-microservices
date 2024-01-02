@@ -5,7 +5,7 @@ services:
     container_name: adm_videos_mysql
     image: mysql:latest
     environment:
-      - MYSQL_ROOT_PASSWORD=123456
+      - MYSQL_ROOT_PASSWORD=420024Jo
       - MYSQL_DATABASE=adm_videos
     security_opt:
       - seccomp:unconfined
