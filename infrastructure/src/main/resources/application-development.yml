@@ -1,3 +1,9 @@
+mysql:
+  username: brito
+  password: 9431DsdS%$
+  schema: adm_videos
+  url: localhost:3306
+
 server:
   port: 8082
   servlet:
