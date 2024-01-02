@@ -4,9 +4,8 @@ import com.brito.admin.catalogo.domain.AggregateRoot;
 import com.brito.admin.catalogo.domain.validation.ValidationHandler;
 
 import java.time.Instant;
-import java.util.UUID;
 
-public class Category extends AggregateRoot<CategoryID> implements Cloneable{
+public class Category extends AggregateRoot<CategoryID> implements Cloneable {
     private String name;
     private String description;
     private boolean active;
@@ -32,14 +31,14 @@ public class Category extends AggregateRoot<CategoryID> implements Cloneable{
         this.deletedAt = aDeleteDate;
     }
 
-    public static Category newCategory(final String aName, final String aDescription,final boolean isActive){
+    public static Category newCategory(final String aName, final String aDescription, final boolean isActive) {
         final var id = CategoryID.unique();
         final var now = Instant.now();
         final var deletedAt = isActive ? null : now;
         return new Category(id, aName, aDescription, isActive, now, now, null);
     }
 
-    public static Category with(final Category aCategory){
+    public static Category with(final Category aCategory) {
         return new Category(
                 aCategory.getId(),
                 aCategory.name,
@@ -52,18 +51,19 @@ public class Category extends AggregateRoot<CategoryID> implements Cloneable{
     }
 
     @Override
-    public void validate(final ValidationHandler handler){
+    public void validate(final ValidationHandler handler) {
         new CategoryValidator(this, handler).validate();
     }
 
-    public Category activate(){
+    public Category activate() {
         this.deletedAt = null;
         this.active = true;
         this.updatedAt = Instant.now();
         return this;
     }
-    public Category deactivate(){
-        if (getDeletedAt() == null){
+
+    public Category deactivate() {
+        if (getDeletedAt() == null) {
             this.deletedAt = Instant.now();
         }
 
@@ -72,9 +72,9 @@ public class Category extends AggregateRoot<CategoryID> implements Cloneable{
         return this;
     }
 
-    public Category update(final String aName, final String aDescription, final boolean isActive){
+    public Category update(final String aName, final String aDescription, final boolean isActive) {
 
-        if (isActive){
+        if (isActive) {
             activate();
         } else {
             deactivate();
