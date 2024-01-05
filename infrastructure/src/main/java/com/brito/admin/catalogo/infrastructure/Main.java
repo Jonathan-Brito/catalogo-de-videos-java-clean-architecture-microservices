@@ -22,7 +22,7 @@ public class Main {
 
     }
 
-    @Bean
+   /* @Bean
     public ApplicationRunner applicationRunner(CategoryRepository categoryRepository){
         return args -> {
             List<CategoryJpaEntity> all = categoryRepository.findAll();
@@ -36,5 +36,5 @@ public class Main {
             // Depois ir até o banco e apagar tudo
             categoryRepository.deleteAll();
         };
-    }
+    }*/
 }
