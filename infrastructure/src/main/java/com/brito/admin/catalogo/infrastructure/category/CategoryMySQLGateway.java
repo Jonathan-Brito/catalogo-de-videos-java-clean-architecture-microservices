@@ -21,8 +21,9 @@ public class CategoryMySQLGateway implements CategoryGateway {
     }
 
     @Override
-    public Optional<Category> findById(CategoryID anId) {
-        return Optional.empty();
+    public Optional<Category> findById(final CategoryID anId) {
+        // Indo até o banco de dados se não existe não entra no map mas se existir entrar no map e converter o dado do banco para o agregado de categoria
+        return this.categoryRepository.findById(anId.getValue()).map(CategoryJpaEntity::toAggregate);
     }
 
     @Override
